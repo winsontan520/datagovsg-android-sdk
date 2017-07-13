@@ -1,0 +1,56 @@
+apply plugin: 'com.android.application'
+
+def getProps(String propName) {
+    def propsFile = rootProject.file('local.properties')
+    if (propsFile.exists()) {
+        def props = new Properties()
+        props.load(new FileInputStream(propsFile))
+        return props[propName]
+    } else {
+        return "YOUR_API_KEY";
+    }
+}
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+    defaultConfig {
+        applicationId "com.winsontan520.datagovsg.samples"
+        minSdkVersion 16
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        // my custom config
+        buildConfigField("String", "API_KEY", "\""+getProps("api_key")+"\"")
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+
+    final support_lib_version = '25.3.1'
+    compile 'com.android.support:support-v4:' + support_lib_version
+    compile 'com.android.support:appcompat-v7:' + support_lib_version
+    compile 'com.android.support:recyclerview-v7:' + support_lib_version
+    compile 'com.android.support:cardview-v7:' + support_lib_version
+    compile 'com.android.support:percent:' + support_lib_version
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+
+    testCompile 'junit:junit:4.12'
+
+    compile project(':datagovsg')
+
+}
