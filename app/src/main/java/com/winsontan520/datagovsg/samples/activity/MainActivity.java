@@ -25,7 +25,7 @@ public class MainActivity extends BaseActivity {
 
         // Defined Array values to show in ListView
         String[][] values = new String[][]{
-                {"Traffic Images", "Request data using @GET(\"transport/traffic-images\")"}
+                {"Traffic Images", "@GET(\"transport/traffic-images\")"}
         };
 
         clazzes = new Class[]{
