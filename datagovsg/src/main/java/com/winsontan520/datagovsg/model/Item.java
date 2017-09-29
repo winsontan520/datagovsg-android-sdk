@@ -14,6 +14,9 @@ public class Item {
     @SerializedName("cameras")
     @Expose
     private List<Camera> cameras = null;
+    @SerializedName("carpark_data")
+    @Expose
+    private List<CarparkData> carparkData = null;
 
     public String getTimestamp() {
         return timestamp;
@@ -29,6 +32,14 @@ public class Item {
 
     public void setCameras(List<Camera> cameras) {
         this.cameras = cameras;
+    }
+
+    public List<CarparkData> getCarparkData() {
+        return carparkData;
+    }
+
+    public void setCarparkData(List<CarparkData> carparkData) {
+        this.carparkData = carparkData;
     }
 
     @Override public String toString() {

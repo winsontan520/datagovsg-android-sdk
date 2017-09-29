@@ -11,6 +11,10 @@ import retrofit2.http.GET;
 
 public interface DataGovSgService {
 
+    @GET("transport/carpark-availability")
+    Call<DataWrapper> getCarparkAvailability();
+
     @GET("transport/traffic-images")
     Call<DataWrapper> getTrafficImages();
+
 }

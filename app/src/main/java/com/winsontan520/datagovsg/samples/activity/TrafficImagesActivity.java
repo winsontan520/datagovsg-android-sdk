@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.winsontan520.datagovsg.DataGovSg;
@@ -30,7 +31,7 @@ public class TrafficImagesActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_traffic_images);
+        setContentView(R.layout.activity_recycler_view);
 
         DataGovSg.requestTrafficImages(new Callback<DataWrapper>() {
 
@@ -47,6 +48,11 @@ public class TrafficImagesActivity extends BaseActivity {
     }
 
     private void updateUI(Response<DataWrapper> response) {
+        if(response.code() != 200){
+            Toast.makeText(this, "Error response.code() = " + response.code(), Toast.LENGTH_LONG).show();
+            return;
+        }
+
         DataWrapper wrapper = response.body();
 
         List<Camera> cameras = wrapper.getItems().get(0).getCameras();
@@ -57,7 +63,6 @@ public class TrafficImagesActivity extends BaseActivity {
         }
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
-        recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new TrafficCameraAdapter(cameras));
     }

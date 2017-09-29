@@ -9,7 +9,6 @@ import java.util.Map;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
-import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -24,9 +23,12 @@ public class DataGovSg {
 
     private Map<String, String> headers;
     private DataGovSgService services;
+    private static String DEFAULT_BASE_URL = "https://api.data.gov.sg/v1/";
+    private String baseUrl;
 
-    private DataGovSg(String apiKey) {
+    private DataGovSg(String apiKey, String baseUrl) {
         this.headers = new HashMap<>();
+        this.baseUrl = baseUrl;
 
         // default header apiKey required by DataGovSg
         headers.put("api-key", apiKey);
@@ -36,7 +38,14 @@ public class DataGovSg {
 
     public static void initialize(String apiKey) {
         if (singleton == null) {
-            singleton = new DataGovSg(apiKey);
+            singleton = new DataGovSg(apiKey, DEFAULT_BASE_URL);
+        }
+    }
+
+    // use this if one day the base url changed
+    public static void initialize(String apiKey, String baseUrl) {
+        if (singleton == null) {
+            singleton = new DataGovSg(apiKey, baseUrl);
         }
     }
 
@@ -60,7 +69,7 @@ public class DataGovSg {
         });
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://api.data.gov.sg/v1/")
+                .baseUrl(baseUrl)
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(httpClientBuilder.build())
                 .build();
@@ -72,20 +81,11 @@ public class DataGovSg {
         return services;
     }
 
+    public static void requestCarparkAvailability(final Callback<DataWrapper> callback) {
+        singleton.getServices().getCarparkAvailability().enqueue(callback);
+    }
+
     public static void requestTrafficImages(final Callback<DataWrapper> callback) {
-        Call<DataWrapper> call = singleton.getServices().getTrafficImages();
-//        call.enqueue(new Callback<DataWrapper>() {
-//
-//            @Override
-//            public void onResponse(Call<DataWrapper> call, Response<DataWrapper> response) {
-//                callback.onResponse(response);
-//            }
-//
-//            @Override
-//            public void onFailure(Call<DataWrapper> call, Throwable t) {
-//                callback.onFailure(t);
-//            }
-//        });
-        call.enqueue(callback);
+        singleton.getServices().getTrafficImages().enqueue(callback);
     }
 }
