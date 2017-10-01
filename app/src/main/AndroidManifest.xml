@@ -21,6 +21,7 @@
         </activity>
         <activity android:name=".activity.TrafficImagesActivity"/>
         <activity android:name=".activity.CarParkAvailabilityActivity"/>
+        <activity android:name=".activity.TaxiAvailabilityActivity"/>
     </application>
 
 </manifest>

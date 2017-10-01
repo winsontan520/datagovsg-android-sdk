@@ -25,13 +25,15 @@ public class MainActivity extends BaseActivity {
 
         // Defined Array values to show in ListView
         String[][] values = new String[][]{
+                {"Traffic Images", "@GET(/transport/traffic-images)"},
                 {"Car park availability", "@GET(/transport/carpark-availability)"},
-                {"Traffic Images", "@GET(/transport/traffic-images)"}
+                {"Taxi availability", "@GET(/transport/taxi-availability)"},
         };
 
         clazzes = new Class[]{
-                CarParkAvailabilityActivity.class,
                 TrafficImagesActivity.class,
+                CarParkAvailabilityActivity.class,
+                TaxiAvailabilityActivity.class,
         };
 
         ListView lv = (ListView) findViewById(android.R.id.list);

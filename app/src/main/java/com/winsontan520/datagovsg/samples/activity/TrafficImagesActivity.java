@@ -55,6 +55,7 @@ public class TrafficImagesActivity extends BaseActivity {
 
         DataWrapper wrapper = response.body();
 
+        // Don't ask me why retrieve data like this, ask the fellow who return json response
         List<Camera> cameras = wrapper.getItems().get(0).getCameras();
         Log.d(TAG, "cameras size = " + cameras.size());
 

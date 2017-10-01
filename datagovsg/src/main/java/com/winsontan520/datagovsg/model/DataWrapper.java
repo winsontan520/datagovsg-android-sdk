@@ -14,6 +14,15 @@ public class DataWrapper {
     @SerializedName("api_info")
     @Expose
     private ApiInfo apiInfo;
+    @SerializedName("type")
+    @Expose
+    private String type;
+    @SerializedName("crs")
+    @Expose
+    private Crs crs;
+    @SerializedName("features")
+    @Expose
+    private List<Feature> features = null;
 
     public List<Item> getItems() {
         return items;
@@ -31,10 +40,38 @@ public class DataWrapper {
         this.apiInfo = apiInfo;
     }
 
-    @Override public String toString() {
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public Crs getCrs() {
+        return crs;
+    }
+
+    public void setCrs(Crs crs) {
+        this.crs = crs;
+    }
+
+    public List<Feature> getFeatures() {
+        return features;
+    }
+
+    public void setFeatures(List<Feature> features) {
+        this.features = features;
+    }
+
+    @Override
+    public String toString() {
         return "DataWrapper{" +
                 "items=" + items +
                 ", apiInfo=" + apiInfo +
+                ", type='" + type + '\'' +
+                ", crs=" + crs +
+                ", features=" + features +
                 '}';
     }
 }

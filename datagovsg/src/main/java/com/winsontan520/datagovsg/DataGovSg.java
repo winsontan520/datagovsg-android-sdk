@@ -81,11 +81,27 @@ public class DataGovSg {
         return services;
     }
 
-    public static void requestCarparkAvailability(final Callback<DataWrapper> callback) {
-        singleton.getServices().getCarparkAvailability().enqueue(callback);
+    public static void requestTrafficImages(final Callback<DataWrapper> callback) {
+        requestTrafficImages(callback, null);
     }
 
-    public static void requestTrafficImages(final Callback<DataWrapper> callback) {
-        singleton.getServices().getTrafficImages().enqueue(callback);
+    public static void requestTrafficImages(final Callback<DataWrapper> callback, String dateTime) {
+        singleton.getServices().getTrafficImages(dateTime).enqueue(callback);
+    }
+
+    public static void requestCarparkAvailability(final Callback<DataWrapper> callback) {
+        requestCarparkAvailability(callback, null);
+    }
+
+    public static void requestCarparkAvailability(final Callback<DataWrapper> callback, String dateTime) {
+        singleton.getServices().getCarparkAvailability(dateTime).enqueue(callback);
+    }
+
+    public static void requestTaxiAvailability(final Callback<DataWrapper> callback) {
+        requestTaxiAvailability(callback, null);
+    }
+
+    public static void requestTaxiAvailability(final Callback<DataWrapper> callback, String dateTime) {
+        singleton.getServices().getTaxiAvailability(dateTime).enqueue(callback);
     }
 }
