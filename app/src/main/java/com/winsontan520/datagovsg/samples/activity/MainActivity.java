@@ -28,12 +28,14 @@ public class MainActivity extends BaseActivity {
                 {"Traffic Images", "@GET(/transport/traffic-images)"},
                 {"Car park availability", "@GET(/transport/carpark-availability)"},
                 {"Taxi availability", "@GET(/transport/taxi-availability)"},
+                {"2 Hour Forecast", "@GET(/environment/2-hour-weather-forecast)"},
         };
 
         clazzes = new Class[]{
                 TrafficImagesActivity.class,
                 CarParkAvailabilityActivity.class,
                 TaxiAvailabilityActivity.class,
+                TwoHourWeatherForecastActivity.class
         };
 
         ListView lv = (ListView) findViewById(android.R.id.list);

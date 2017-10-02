@@ -104,4 +104,12 @@ public class DataGovSg {
     public static void requestTaxiAvailability(final Callback<DataWrapper> callback, String dateTime) {
         singleton.getServices().getTaxiAvailability(dateTime).enqueue(callback);
     }
+
+    public static void request2HourForecast(final Callback<DataWrapper> callback) {
+        request2HourForecast(callback, null, null);
+    }
+
+    public static void request2HourForecast(final Callback<DataWrapper> callback, String dateTime, String date) {
+        singleton.getServices().get2HourWeatherForecast(dateTime, date).enqueue(callback);
+    }
 }

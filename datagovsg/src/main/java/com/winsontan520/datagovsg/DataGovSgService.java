@@ -21,4 +21,6 @@ public interface DataGovSgService {
     @GET("transport/taxi-availability")
     Call<DataWrapper> getTaxiAvailability(@Query("date_time") String dateTime);
 
+    @GET("environment/2-hour-weather-forecast")
+    Call<DataWrapper> get2HourWeatherForecast(@Query("date_time") String dateTime, @Query("date") String date);
 }

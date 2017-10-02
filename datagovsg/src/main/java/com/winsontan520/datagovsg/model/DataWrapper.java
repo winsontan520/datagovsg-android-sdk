@@ -8,6 +8,9 @@ import java.util.List;
 
 public class DataWrapper {
 
+    @SerializedName("area_metadata")
+    @Expose
+    private List<AreaMeta> areaMetadata = null;
     @SerializedName("items")
     @Expose
     private List<Item> items = null;
@@ -23,6 +26,14 @@ public class DataWrapper {
     @SerializedName("features")
     @Expose
     private List<Feature> features = null;
+
+    public List<AreaMeta> getAreaMetadata() {
+        return areaMetadata;
+    }
+
+    public void setAreaMetadata(List<AreaMeta> areaMetadata) {
+        this.areaMetadata = areaMetadata;
+    }
 
     public List<Item> getItems() {
         return items;
