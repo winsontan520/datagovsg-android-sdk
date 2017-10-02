@@ -17,6 +17,12 @@ public class Item {
     @SerializedName("valid_period")
     @Expose
     private ValidPeriod validPeriod;
+    @SerializedName("general")
+    @Expose
+    private General general;
+    @SerializedName("periods")
+    @Expose
+    private List<Period> periods = null;
     @SerializedName("cameras")
     @Expose
     private List<Camera> cameras = null;
@@ -51,6 +57,22 @@ public class Item {
         this.validPeriod = validPeriod;
     }
 
+    public General getGeneral() {
+        return general;
+    }
+
+    public void setGeneral(General general) {
+        this.general = general;
+    }
+
+    public List<Period> getPeriods() {
+        return periods;
+    }
+
+    public void setPeriods(List<Period> periods) {
+        this.periods = periods;
+    }
+
     public List<Camera> getCameras() {
         return cameras;
     }
@@ -75,10 +97,17 @@ public class Item {
         this.forecasts = forecasts;
     }
 
-    @Override public String toString() {
+    @Override
+    public String toString() {
         return "Item{" +
-                "timestamp='" + timestamp + '\'' +
+                "updateTimestamp='" + updateTimestamp + '\'' +
+                ", timestamp='" + timestamp + '\'' +
+                ", validPeriod=" + validPeriod +
+                ", general=" + general +
+                ", periods=" + periods +
                 ", cameras=" + cameras +
+                ", carparkData=" + carparkData +
+                ", forecasts=" + forecasts +
                 '}';
     }
 }

@@ -23,4 +23,8 @@ public interface DataGovSgService {
 
     @GET("environment/2-hour-weather-forecast")
     Call<DataWrapper> get2HourWeatherForecast(@Query("date_time") String dateTime, @Query("date") String date);
+
+    @GET("environment/24-hour-weather-forecast")
+    Call<DataWrapper> get24HourWeatherForecast(@Query("date_time") String dateTime, @Query("date") String date);
+
 }

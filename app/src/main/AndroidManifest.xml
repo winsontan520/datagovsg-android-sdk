@@ -23,6 +23,7 @@
         <activity android:name=".activity.CarParkAvailabilityActivity"/>
         <activity android:name=".activity.TaxiAvailabilityActivity"/>
         <activity android:name=".activity.TwoHourWeatherForecastActivity"/>
+        <activity android:name=".activity.TwentyFourHourWeatherForecastActivity"/>
     </application>
 
 </manifest>
