@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Data Gov SG</string>
+    <string name="app_name">DataGovSG SDK Demo</string>
     <string name="traffic_camera_id">Camera %1$s</string>
     <string name="traffic_camera_latitude">Latitude %1$s</string>
     <string name="traffic_camera_longitude">Longitude %1$s</string>
