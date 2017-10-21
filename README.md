@@ -4,6 +4,21 @@
 1. As a project for me to learn writing Android library and other learning purposes.
 2. To help others to save time in implement Data.gov.sg API responses in Android project.
 
+# How to use
+Coming soon
+
+# To-Do
+- Sample app
+- 4-day-weather-forecast
+- GETair-temperature
+- GETpm25
+- GETpsi
+- GETrainfall
+- GETrelative-humidity
+- GETuv-index
+- GETwind-direction
+- GETwind-speed
+
 # Credits
 Thanks Data.gov.sg providing data for public to access.
 
