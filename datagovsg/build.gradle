@@ -8,7 +8,7 @@ android {
         minSdkVersion 16
         targetSdkVersion 26
         versionCode 1
-        versionName "0.1.0"
+        versionName datagovsg_lib_version
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -19,6 +19,24 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+}
+
+ext {
+    bintrayRepo = 'datagovsg' // your repo name
+    bintrayName = 'datagovsg-android-sdk' // has to be same as your library module name
+    publishedGroupId = 'com.winsontan520.datagovsg' // your module package name
+    libraryName = 'datagovsg-android-sdk'
+    artifact = 'datagovsg-android-sdk' // has to be same as your library module name
+    libraryDescription = 'Provide quick implementation to call and consume data from data.gov.sg API'
+    siteUrl = 'https://github.com/winsontan520/datagovsg-android-sdk'
+    gitUrl = 'https://github.com/winsontan520/datagovsg-android-sdk.git'
+    libraryVersion = datagovsg_lib_version
+    developerId = 'winsontan520'
+    developerName = 'Winson Tan'
+    developerEmail = 'winsontan520@gmail.com'
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
 }
 
 dependencies {
@@ -35,3 +53,6 @@ dependencies {
     compile 'com.google.code.gson:gson:2.8.2'
 
 }
+
+apply from: 'https://raw.githubusercontent.com/numetriclabz/jcenter/master/installv.gradle'
+apply from: 'https://raw.githubusercontent.com/numetriclabz/jcenter/master/bintrayv.gradle'
