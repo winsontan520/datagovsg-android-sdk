@@ -39,7 +39,6 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
-    final support_lib_version = '26.1.0'
     compile 'com.android.support:support-v4:' + support_lib_version
     compile 'com.android.support:appcompat-v7:' + support_lib_version
     compile 'com.android.support:recyclerview-v7:' + support_lib_version
