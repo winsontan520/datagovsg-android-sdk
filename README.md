@@ -5,7 +5,10 @@
 2. To help others to save time in implement Data.gov.sg API responses in Android project.
 
 # How to use
-Coming soon
+Gradle:
+```groovy
+compile 'com.winsontan520.datagovsg:datagovsg-android-sdk:0.1.1'
+```
 
 # To-Do
 - Sample app
