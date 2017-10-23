@@ -23,10 +23,10 @@ android {
 
 ext {
     bintrayRepo = 'datagovsg' // your repo name
-    bintrayName = 'datagovsg-android-sdk' // has to be same as your library module name
+    bintrayName = 'datagovsg' // has to be same as your library module name
     publishedGroupId = 'com.winsontan520.datagovsg' // your module package name
     libraryName = 'datagovsg-android-sdk'
-    artifact = 'datagovsg-android-sdk' // has to be same as your library module name
+    artifact = 'datagovsg' // has to be same as your library module name
     libraryDescription = 'Provide quick implementation to call and consume data from data.gov.sg API'
     siteUrl = 'https://github.com/winsontan520/datagovsg-android-sdk'
     gitUrl = 'https://github.com/winsontan520/datagovsg-android-sdk.git'
