@@ -5,9 +5,19 @@
 2. To help others to save time in implement Data.gov.sg API responses in Android project.
 
 # How to use
-Gradle:
+In your project level gradle, add this maven repo
 ```groovy
-compile 'com.winsontan520.datagovsg:datagovsg-android-sdk:0.1.1'
+allprojects {
+    repositories {
+        maven {
+            url 'http://dl.bintray.com/winsontan520/datagovsg'
+        }
+    }
+}
+```
+In your app level gradle add
+```groovy
+compile 'com.winsontan520.datagovsg:datagovsg:0.1.12'
 ```
 
 # To-Do
