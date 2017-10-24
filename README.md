@@ -4,8 +4,12 @@
 1. As a project for me to learn writing Android library and other learning purposes.
 2. To help others to save time in implement Data.gov.sg API responses in Android project.
 
+# Requirements
+1. Android plugin for gradle 3 or above (example: com.android.tools.build:gradle:3.0.0-rc2)
+2. Gradle version 4.1 or above
+
 # How to use
-In your project level gradle, add this maven repo
+1. In your project level gradle, add this maven repo
 ```groovy
 allprojects {
     repositories {
@@ -15,9 +19,31 @@ allprojects {
     }
 }
 ```
-In your app level gradle add
+2. In your app level gradle add
 ```groovy
 compile 'com.winsontan520.datagovsg:datagovsg:0.1.12'
+```
+
+3. In your main application onCreate
+```groovy
+DataGovSg.initialize(YOUR_API_KEY);
+```
+4. Example to get traffic images
+```groovy
+DataGovSg.requestTrafficImages(new Callback<DataWrapper>() {
+
+            @Override
+            public void onResponse(Call<DataWrapper> call, Response<DataWrapper> response) {
+                // handle your response here, for help checkout the sample in this repo
+                updateUI(response);
+            }
+
+            @Override
+            public void onFailure(Call<DataWrapper> call, Throwable t) {
+                // implement your own error handling here
+                Log.e(TAG, "onFailure" + t);
+            }
+        });
 ```
 
 # To-Do
