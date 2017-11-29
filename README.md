@@ -1,4 +1,4 @@
-## Disclaimer: This is an open source project that is NOT affiliated to Data.gov.sg
+## Disclaimer: This is an open source project. This project does NOT affiliated to Data.gov.sg
 
 # Why I created this open source project?
 1. As a project for me to learn writing Android library and other learning purposes.
@@ -9,26 +9,16 @@
 2. Gradle version 4.1 or above
 
 # How to use
-1. In your project level gradle, add this maven repo
-```groovy
-allprojects {
-    repositories {
-        maven {
-            url 'http://dl.bintray.com/winsontan520/datagovsg'
-        }
-    }
-}
-```
-2. In your app level gradle add
+1. In your app level build.gradle add
 ```groovy
 compile 'com.winsontan520.datagovsg:datagovsg:0.1.12'
 ```
 
-3. In your main application onCreate
+2. In your main application onCreate
 ```groovy
 DataGovSg.initialize(YOUR_API_KEY);
 ```
-4. Example to get traffic images
+3. Example to get traffic images
 ```groovy
 DataGovSg.requestTrafficImages(new Callback<DataWrapper>() {
 
